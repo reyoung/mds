@@ -108,7 +108,7 @@ setup(
     author="Yang Yu",
     author_email="reyoung@126.com",
     description="python mmap data struct",
-    long_description="",
+    long_description="Data structure implementations using unix-mmap.",
     ext_modules=[CMakeExtension("pymds")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,

@@ -3,4 +3,4 @@ cmake-build-*
 venv
 build
 dist
-pymds.egg-info
+*.egg-info
