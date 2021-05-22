@@ -53,7 +53,7 @@ jobs:
           CIBW_ENVIRONMENT_COMMON="PARSELMOUTH_EXTRA_CMAKE_ARGS=\"-DPREBUILT_DEPENDENCIES=\$(python -c 'import os; print(os.getcwd().replace(os.path.sep, '/'))')/build_dependencies\" CMAKE_BUILD_PARALLEL_LEVEL=2"
           echo "CIBW_ENVIRONMENT=$CIBW_ENVIRONMENT_COMMON" >> $GITHUB_ENV
           echo "CIBW_ENVIRONMENT_LINUX=$CIBW_ENVIRONMENT_COMMON PIP_ONLY_BINARY='numpy'" >> $GITHUB_ENV
-          echo "CIBW_ENVIRONMENT_MACOS=$CIBW_ENVIRONMENT_COMMON MACOSX_DEPLOYMENT_TARGET=10.9 CMAKE_OSX_ARCHITECTURES=\"$CMAKE_OSX_ARCHITECTURES\"" >> $GITHUB_ENV
+          echo "CIBW_ENVIRONMENT_MACOS=$CIBW_ENVIRONMENT_COMMON MACOSX_DEPLOYMENT_TARGET=10.12 CMAKE_OSX_ARCHITECTURES=\"$CMAKE_OSX_ARCHITECTURES\"" >> $GITHUB_ENV
           CIBW_BEFORE_ALL_COMMON="cmake -S . -B build_dependencies $CMAKE_ARCH && cmake --build build_dependencies --target pymds -j 2"
           echo "CIBW_BEFORE_ALL_LINUX=yum install -y ninja-build && pip install cmake && ln -s \$(which cmake) /usr/local/bin/cmake && $CIBW_BEFORE_ALL_COMMON" >> $GITHUB_ENV
           echo "CIBW_BEFORE_ALL_MACOS=brew install ninja && $CIBW_BEFORE_ALL_COMMON" >> $GITHUB_ENV
