@@ -103,7 +103,8 @@ class CMakeBuild(build_ext):
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="mmapds",
-    version="0.1.0",
+    version="0.0.1",
+    url="https://github.com/reyoung/mmapds",
     author="Yang Yu",
     author_email="reyoung@126.com",
     description="python mmap data struct",
