@@ -102,7 +102,7 @@ class CMakeBuild(build_ext):
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
-    name="pymds",
+    name="mmapds",
     version="0.1.0",
     author="Yang Yu",
     author_email="reyoung@126.com",

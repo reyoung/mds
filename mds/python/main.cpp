@@ -9,7 +9,7 @@ namespace py = pybind11;
 
 namespace mds::python {
 
-PYBIND11_MODULE(pymds, m) {
+PYBIND11_MODULE(mmapds, m) {
   m.doc() = R"pbdoc(
         Python mem-map data structures.
     )pbdoc";
