@@ -20,6 +20,8 @@ jobs:
             cibw-arch: manylinux_x86_64
           - runs-on: ubuntu-latest
             cibw-arch: manylinux_i686
+          - runs-on: ubuntu-latest
+            cibw-arch: manylinux_aarch64
           - runs-on: macos-latest
             cibw-arch: macosx_x86_64
           - runs-on: macos-latest
