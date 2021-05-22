@@ -2,13 +2,15 @@
 #include "mds/base/file_descriptor.h"
 #include <sys/mman.h>
 #include <sys/stat.h>
+#include <cstring>
+
 namespace mds::base {
 
 class MMapReader {
 public:
   explicit MMapReader(const char *filename) : fd_(filename, O_RDONLY) {
     struct stat s;
-    memset(&s, 0, sizeof(s));
+    std::memset(&s, 0, sizeof(s));
     MDS_ENFORCE(fstat(fd_.FD(), &s) == 0) << "cannot stat file " << filename << " errno " << errno;
     len_ = s.st_size;
     beg_ = reinterpret_cast<uint8_t *>(mmap(nullptr, len_, PROT_READ, MAP_SHARED, fd_.FD(), 0));
