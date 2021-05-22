@@ -1,2 +1,6 @@
 cmake-build-*
 .idea
+venv
+build
+dist
+pymds.egg-info
