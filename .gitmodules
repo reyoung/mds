@@ -1,0 +1,6 @@
+[submodule "3rd/exceptxx"]
+	path = 3rd/exceptxx
+	url = https://github.com/SergiusTheBest/exceptxx.git
+[submodule "3rd/catch2"]
+	path = 3rd/catch2
+	url = https://github.com/catchorg/Catch2.git

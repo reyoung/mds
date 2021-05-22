@@ -1,0 +1,2 @@
+add_subdirectory(exceptxx)
+add_subdirectory(catch2)
