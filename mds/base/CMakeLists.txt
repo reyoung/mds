@@ -1,4 +1,4 @@
-add_library(mds_base file_descriptor.cpp except.cpp)
+add_library(mds_base file_descriptor.cpp except.cpp mmap.cpp)
 target_link_libraries(mds_base PUBLIC exceptxx::exceptxx)
 target_include_directories(mds_base PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../)
 
