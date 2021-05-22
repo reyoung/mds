@@ -103,7 +103,7 @@ class CMakeBuild(build_ext):
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="mmapds",
-    version="0.0.1",
+    version="0.0.2",
     url="https://github.com/reyoung/mmapds",
     author="Yang Yu",
     author_email="reyoung@126.com",
