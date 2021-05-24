@@ -1,17 +1,23 @@
 #pragma once
 #include "mds/base/mmap.h"
+#include "mds/base/simple8b.h"
 #include <vector>
 namespace mds::strlist {
 
 class Reader {
 public:
   explicit Reader(const char *filename) : reader_(filename) {
-    nPos_ = *reinterpret_cast<const uint32_t *>(reader_.end() - sizeof(uint32_t));
-    pos_ = reinterpret_cast<const uint64_t * >(reader_.end() - sizeof(uint32_t) - nPos_ * sizeof(uint64_t));
+    uint32_t endOffset = *reinterpret_cast<const uint32_t *>(reader_.end() - sizeof(uint32_t));
+    pos_.emplace_back(0);
+    std::string_view buf(reinterpret_cast<const char *>(reader_.end() - endOffset - sizeof(uint32_t)), endOffset);
+    base::DecodeSimple8B(&pos_, buf);
+    for (size_t i = 0; i < pos_.size() - 1; i++) {
+      pos_[i + 1] += pos_[i];
+    }
   }
 
   [[nodiscard]] size_t size() const {
-    return nPos_ - 1;
+    return pos_.size() - 1;
   }
 
   [[nodiscard]] std::string_view operator[](size_t i) const {
@@ -22,8 +28,7 @@ public:
 
 private:
   base::MMapReader reader_;
-  const uint64_t *pos_;
-  uint32_t nPos_;
+  std::vector<uint64_t> pos_;
 
 };
 
