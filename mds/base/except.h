@@ -37,3 +37,6 @@ private:
 
 #define MDS_ENFORCE(cond) \
   if (!(cond)) exceptxx::ThrowHelper<mds::base::BaseException>(#cond, EXCEPTXX_GET_FUNC(), __LINE__) <<= std::ostringstream()
+
+#define MDS_THROW() \
+  exceptxx::ThrowHelper<mds::base::BaseException>("throw", EXCEPTXX_GET_FUNC(), __LINE__) <<= std::ostringstream()
