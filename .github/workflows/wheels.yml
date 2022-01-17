@@ -41,7 +41,7 @@ jobs:
           architecture: ${{ matrix.python-arch }}
 
       - name: Setup CMake
-        uses: jwlawson/actions-setup-cmake@v1.9
+        uses: jwlawson/actions-setup-cmake@v1.12
 
       - name: Configure cibuildwheel
         shell: bash
